@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -73,7 +74,19 @@ public class ListarProdutosActivity extends AppCompatActivity {
                 });
 
                 janelaDeEscolha.setPositiveButton("Editar", (dialogInterface, i) -> {
-                    dialogInterface.cancel();
+
+                    Bundle bundleDadosProduto = new Bundle();
+
+                    bundleDadosProduto.putLong("id.produto", produtoSelecionado.getId());
+                    bundleDadosProduto.putString("nome_produto", produtoSelecionado.getNome());
+                    bundleDadosProduto.putDouble("preco_produto", produtoSelecionado.getPreco());
+                    bundleDadosProduto.putInt("estoque_produto", produtoSelecionado.getQuantidadeEmEstoque());
+
+                    Intent intentEditarProdutos = new Intent(ListarProdutosActivity.this, EditarProdutosActivity.class);
+                    intentEditarProdutos.putExtras(bundleDadosProduto);
+                    startActivity(intentEditarProdutos);
+
+
                 });
 
                 janelaDeEscolha.create().show();

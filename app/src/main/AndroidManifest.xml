@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BLProdutosApp">
         <activity
+            android:name=".activities.EditarProdutosActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.ListarProdutosActivity"
             android:exported="true"
-            android:label="Lista de produtos"/>
+            android:label="Lista de produtos" />
         <activity
             android:name=".activities.ActivityProduto"
             android:exported="true" />
