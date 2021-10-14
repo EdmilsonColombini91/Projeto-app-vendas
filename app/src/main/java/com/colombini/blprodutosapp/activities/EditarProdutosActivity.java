@@ -98,23 +98,23 @@ public class EditarProdutosActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Produto produtoACadastrar = getDadosProdutoDoFormulario();
+                Produto produtoAAtualizar = getDadosProdutoDoFormulario();
 
-                Log.d("PRODUTO RECUPERADO", produtoACadastrar.toString());
+                Log.d("PRODUTO RECUPERADO", produtoAAtualizar.toString());
 
-                if (produtoACadastrar != null) {
-//
-//                    ProdutoCtrl produtoCtrl = new ProdutoCtrl(ConexaoSQLite.getInstancia(ActivityProduto.this));
-//                    long idProduto = produtoCtrl.salvarProdutoCtrl(produtoACadastrar);
-//
-//                    if (idProduto > 0){
-//                        Toast.makeText(ActivityProduto.this, "Produto salvo com sucesso!", Toast.LENGTH_LONG).show();
-//                    }else{
-//                        Toast.makeText(ActivityProduto.this, "Produto não pode ser salvo", Toast.LENGTH_LONG).show();
-//                    }
-//
-//                } else {
-//                    Toast.makeText(ActivityProduto.this, "Todos os campos são obrigatórios", Toast.LENGTH_LONG).show();
+                if (produtoAAtualizar != null) {
+
+                    ProdutoCtrl produtoCtrl = new ProdutoCtrl(ConexaoSQLite.getInstancia(EditarProdutosActivity.this));
+                    boolean atualizou = produtoCtrl.atualizarProdutoCtrl(produtoAAtualizar);
+
+                    if (atualizou == true){
+                        Toast.makeText(EditarProdutosActivity.this, "Produto salvo com sucesso!", Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(EditarProdutosActivity.this, "Produto não pode ser salvo", Toast.LENGTH_LONG).show();
+                    }
+
+                } else {
+                    Toast.makeText(EditarProdutosActivity.this, "Todos os campos são obrigatórios", Toast.LENGTH_LONG).show();
                 }
 
             }
