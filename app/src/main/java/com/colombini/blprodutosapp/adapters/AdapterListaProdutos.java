@@ -51,4 +51,16 @@ public class AdapterListaProdutos extends BaseAdapter {
 
         return v;
     }
+
+    /**
+     * Atualiza a lista de produtos do adapter
+     * @param pProdutos
+     */
+
+    public void atualizar(List<Produto> pProdutos){
+        this.produtoList.clear();
+        this.produtoList = pProdutos;
+        this.notifyDataSetChanged();
+    }
+
 }

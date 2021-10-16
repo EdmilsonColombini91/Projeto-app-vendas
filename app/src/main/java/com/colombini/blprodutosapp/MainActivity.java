@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.colombini.blprodutosapp.activities.ActivityProduto;
+import com.colombini.blprodutosapp.activities.ActivityVenda;
 import com.colombini.blprodutosapp.activities.ListarProdutosActivity;
 import com.colombini.blprodutosapp.dbHelper.ConexaoSQLite;
 
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnCadastroProdutos;
     private Button btnListarProdutos;
+    private Button btnVender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,23 +27,26 @@ public class MainActivity extends AppCompatActivity {
 
         this.btnCadastroProdutos = (Button) findViewById(R.id.btnCadastroProdutos);
 
-        System.out.println(R.id.btnListarProdutos);
         this.btnListarProdutos = (Button) findViewById(R.id.btnListarProdutos);
 
-        this.btnCadastroProdutos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        this.btnVender = (Button) findViewById(R.id.btnVender);
+
+        this.btnCadastroProdutos.setOnClickListener((view) -> {
 
                 //executado ao clicar no botão
                 Intent intent = new Intent(MainActivity.this, ActivityProduto.class);
                 startActivity(intent);
-            }
         });
 
-        this.btnListarProdutos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        this.btnListarProdutos.setOnClickListener((viw) -> {
                 Intent intent = new Intent(MainActivity.this, ListarProdutosActivity.class);
+                startActivity(intent);
+        });
+
+        this.btnVender.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(MainActivity.this, ActivityVenda.class);
                 startActivity(intent);
             }
         });

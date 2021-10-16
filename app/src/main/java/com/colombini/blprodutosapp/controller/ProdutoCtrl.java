@@ -18,7 +18,7 @@ public class ProdutoCtrl {
         return this.produtoDAO.salvarProdutoDAO(pProduto);
     }
 
-    public List<Produto> getListaProdutosCtrl() {
+    public List<Produto> getListaProdutosCTrl() {
         return this.produtoDAO.getListaProdutosDAO();
     }
 

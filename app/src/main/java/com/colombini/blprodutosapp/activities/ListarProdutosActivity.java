@@ -25,14 +25,16 @@ public class ListarProdutosActivity extends AppCompatActivity {
     private ListView lsvProdutos;
     private List<Produto> produtoList;
     private AdapterListaProdutos adapterListaProdutos;
+    private ProdutoCtrl produtoCtrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_produtos);
 
-        ProdutoCtrl produtoCtrl = new ProdutoCtrl(ConexaoSQLite.getInstancia(ListarProdutosActivity.this));
-        produtoList = produtoCtrl.getListaProdutosCtrl();
+        this.produtoCtrl = new ProdutoCtrl(ConexaoSQLite.getInstancia(ListarProdutosActivity.this));
+
+        produtoList = produtoCtrl.getListaProdutosCTrl();
 
         this.lsvProdutos = (ListView) findViewById(R.id.lsvProdutos);
 
@@ -40,18 +42,21 @@ public class ListarProdutosActivity extends AppCompatActivity {
 
         this.lsvProdutos.setAdapter(this.adapterListaProdutos);
 
-        this.lsvProdutos.setOnItemClickListener((adapterView, view, posicao, id) -> {
+        this.lsvProdutos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-            Produto produtoSelecionado = (Produto) adapterListaProdutos.getItem(posicao);
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
 
-            AlertDialog.Builder janelaDeEscolha = new AlertDialog.Builder(ListarProdutosActivity.this);
+                Produto produtoSelecionado = (Produto) adapterListaProdutos.getItem(posicao);
 
-            janelaDeEscolha.setTitle("Escolha:");
-            janelaDeEscolha.setMessage("O que deseja fazer com o produto selecionado?");
+                AlertDialog.Builder janelaDeEscolha = new AlertDialog.Builder(ListarProdutosActivity.this);
 
-            /*janelaDeEscolha.setNeutralButton("Cancelar", (dialogInterface, id) -> {
-                dialogInterface.cancel();
-            });*/
+                janelaDeEscolha.setTitle("Escolha");
+                janelaDeEscolha.setMessage("O que deseja fazer com o produto selecionado?");
+
+                janelaDeEscolha.setNeutralButton("Cancelar", (dialogInterface, i) -> {
+                    dialogInterface.cancel();
+                });
 
                 janelaDeEscolha.setNegativeButton("Excluir", new DialogInterface.OnClickListener() {
                     @Override
@@ -65,9 +70,9 @@ public class ListarProdutosActivity extends AppCompatActivity {
 
                             adapterListaProdutos.removerProduto(posicao);
 
-                            Toast.makeText(ListarProdutosActivity.this, "Produto Excluido com sucesso!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ListarProdutosActivity.this, "Produto excluido com sucesso", Toast.LENGTH_LONG).show();
                         }else{
-                            Toast.makeText(ListarProdutosActivity.this, "Erro ao excluir produto", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ListarProdutosActivity.this, "Erro ao excluir produto", Toast.LENGTH_LONG).show();
                         }
 
                     }
@@ -77,7 +82,7 @@ public class ListarProdutosActivity extends AppCompatActivity {
 
                     Bundle bundleDadosProduto = new Bundle();
 
-                    bundleDadosProduto.putLong("id.produto", produtoSelecionado.getId());
+                    bundleDadosProduto.putLong("id_produto", produtoSelecionado.getId());
                     bundleDadosProduto.putString("nome_produto", produtoSelecionado.getNome());
                     bundleDadosProduto.putDouble("preco_produto", produtoSelecionado.getPreco());
                     bundleDadosProduto.putInt("estoque_produto", produtoSelecionado.getQuantidadeEmEstoque());
@@ -86,12 +91,16 @@ public class ListarProdutosActivity extends AppCompatActivity {
                     intentEditarProdutos.putExtras(bundleDadosProduto);
                     startActivity(intentEditarProdutos);
 
-
                 });
 
                 janelaDeEscolha.create().show();
-
+            }
         });
 
+    }
+
+    //executa o evento de click no botao atualizar
+    public void eventAtualizarProdutos(View view){
+        this.adapterListaProdutos.atualizar(this.produtoCtrl.getListaProdutosCTrl());
     }
 }
