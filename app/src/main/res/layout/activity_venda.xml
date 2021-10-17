@@ -4,14 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     android:orientation="vertical"
     tools:context=".activities.ActivityVenda">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selecione um produto" />
 
     <Spinner
         android:id="@+id/spnProduto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck"></Spinner>
+        android:layout_height="40dp"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"></Spinner>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
 
     <EditText
         android:id="@+id/edtQuantidadeProduto"
@@ -28,17 +38,31 @@
 
         <Button
             android:id="@+id/btnAddProduto"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="eventAddProduto"
             android:text="Add produto"
-            android:layout_height="wrap_content" />
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/btnFinalizarVenda"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Finalizar a venda"
-            android:layout_height="wrap_content" />
+            android:textSize="12sp" />
 
     </LinearLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Carrinho de compras" />
 
     <ListView
         android:id="@+id/lsvProdutos"
