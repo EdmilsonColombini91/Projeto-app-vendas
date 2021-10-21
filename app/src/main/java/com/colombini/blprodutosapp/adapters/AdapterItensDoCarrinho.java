@@ -32,21 +32,24 @@ public class AdapterItensDoCarrinho extends BaseAdapter {
     @Override
     public Object getItem(int posicao) {return this.itensDoCarrinho.get(posicao);}
 
-    @Override public long getItemId(int posicao) {return posicao;}
+    @Override
+    public long getItemId(int posicao) {return posicao;}
 
-    public void removerItemDoCarrinho (int posicao) {
+    public boolean removerItemDoCarrinho (int posicao) {
         this.itensDoCarrinho.remove(posicao);
         notifyDataSetChanged();
+
+        return true;
     }
 
     @Override
     public View getView(int posicao, View view, ViewGroup viewGroup) {
 
-        View v = View.inflate(this.context, R.layout.layout_produto, null);
+        View v = View.inflate(this.context, R.layout.layout_carrinho_produtos, null);
 
         TextView tvNomeProduto = (TextView)  v.findViewById(R.id.tvNomeProduto);
         TextView tvPrecoProduto = (TextView)  v.findViewById(R.id.tvPrecoProduto);
-        TextView tvQuantidadeSelecionada = (TextView)  v.findViewById(R.id.tvEstoqueProduto);
+        TextView tvQuantidadeSelecionada = (TextView)  v.findViewById(R.id.tvQteProduto);
         TextView tvValorItem = (TextView) v.findViewById(R.id.tvValorTotalItem);
 
         tvNomeProduto.setText(this.itensDoCarrinho.get(posicao).getNome());
@@ -58,7 +61,17 @@ public class AdapterItensDoCarrinho extends BaseAdapter {
     }
 
     /**
-     * Atualiza a lista de produtos do adapter
+     * Adiciona item ao carrinho
+     * @param pItemDoCarrinho
+     */
+
+    public void addItemDoCarrinho(ItemDoCarrinho pItemDoCarrinho){
+        this.itensDoCarrinho.add(pItemDoCarrinho);
+        this.notifyDataSetChanged();
+    }
+
+    /**
+     * Atualizar a lista de produtos do adapter
      * @param pItensDoCarrinho
      */
 

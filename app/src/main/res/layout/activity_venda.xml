@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Selecione um produto" />
+        android:text="Selecione um produto:" />
 
     <Spinner
         android:id="@+id/spnProduto"
@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Finalizar a venda"
+            android:onClick="eventFecharVenda"
             android:textSize="12sp" />
 
     </LinearLayout>
@@ -63,6 +64,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Carrinho de compras" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TOTAL DA COMPRA"/>
+
+        <TextView
+            android:id="@+id/tvTotalVenda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/lsvProdutos"

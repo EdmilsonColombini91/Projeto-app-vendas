@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.colombini.blprodutosapp.activities.ActivityProduto;
 import com.colombini.blprodutosapp.activities.ActivityVenda;
 import com.colombini.blprodutosapp.activities.ListarProdutosActivity;
+import com.colombini.blprodutosapp.activities.VendasConsolidadasActivity;
 import com.colombini.blprodutosapp.dbHelper.ConexaoSQLite;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnCadastroProdutos;
     private Button btnListarProdutos;
     private Button btnVender;
+    private Button btnMinhasVendas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         this.btnListarProdutos = (Button) findViewById(R.id.btnListarProdutos);
 
         this.btnVender = (Button) findViewById(R.id.btnVender);
+
+        this.btnMinhasVendas = (Button) findViewById(R.id.btnMinhasVendas);
 
         this.btnCadastroProdutos.setOnClickListener((view) -> {
 
@@ -50,5 +54,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        this.btnMinhasVendas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, VendasConsolidadasActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

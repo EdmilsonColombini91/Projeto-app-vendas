@@ -5,8 +5,17 @@ public class ItemDoCarrinho {
     private long id;
     private String nome;
     private int quantidadeSelecionada;
+    private long idProduto;
     private double precoProduto;
     private double precoDoItemVenda; //preco do item vendido = quantidade * preco
+
+    public long getIdProduto() {
+        return idProduto;
+    }
+
+    public void setIdProduto(long idProduto) {
+        this.idProduto = idProduto;
+    }
 
     public long getId() {
         return id;

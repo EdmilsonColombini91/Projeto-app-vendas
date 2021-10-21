@@ -5,10 +5,12 @@
       <map>
         <entry key="..\:/Users/edmilson/AndroidStudioProjects/BLProdutosApp/app/src/main/res/layout/activity_editar_produtos.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/edmilson/AndroidStudioProjects/BLProdutosApp/app/src/main/res/layout/activity_listar_produtos.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/edmilson/AndroidStudioProjects/BLProdutosApp/app/src/main/res/layout/activity_main.xml" value="0.1787037037037037" />
+        <entry key="..\:/Users/edmilson/AndroidStudioProjects/BLProdutosApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/edmilson/AndroidStudioProjects/BLProdutosApp/app/src/main/res/layout/activity_produto.xml" value="0.33" />
-        <entry key="..\:/Users/edmilson/AndroidStudioProjects/BLProdutosApp/app/src/main/res/layout/activity_venda.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/edmilson/AndroidStudioProjects/BLProdutosApp/app/src/main/res/layout/activity_venda.xml" value="0.33" />
+        <entry key="..\:/Users/edmilson/AndroidStudioProjects/BLProdutosApp/app/src/main/res/layout/activity_vendas_consolidadas.xml" value="0.5" />
         <entry key="..\:/Users/edmilson/AndroidStudioProjects/BLProdutosApp/app/src/main/res/layout/layout_carrinho_produtos.xml" value="0.33" />
+        <entry key="..\:/Users/edmilson/AndroidStudioProjects/BLProdutosApp/app/src/main/res/layout/layout_minhas_vendas.xml" value="0.33" />
         <entry key="..\:/Users/edmilson/AndroidStudioProjects/BLProdutosApp/app/src/main/res/layout/layout_produto.xml" value="0.19010416666666666" />
       </map>
     </option>
