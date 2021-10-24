@@ -4,35 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/purple_500"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="25dp"/>
+        android:layout_height="25dp" />
 
     <Button
         android:id="@+id/btnCadastroProdutos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastro de produtos"/>
+        android:text="Cadastro de produtos" />
 
     <Button
         android:id="@+id/btnListarProdutos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Listar Produtos"/>
+        android:text="Listar Produtos" />
 
     <Button
         android:id="@+id/btnVender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Vender"/>
+        android:text="Vender" />
 
     <Button
         android:id="@+id/btnMinhasVendas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Minhas Vendas"/>
+        android:text="Minhas Vendas" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logo_white_80" />
 
 </LinearLayout>
